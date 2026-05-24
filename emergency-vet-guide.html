@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>When to Go to an Emergency Vet — 15 Signs That Can't Wait | Vets.co</title>
+  <meta name="description" content="A board-certified emergency veterinarian explains exactly which symptoms require an emergency vet visit — and which can wait for a regular appointment. Vet-reviewed guide.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white: #FFFFFF; --off-white: #F8FAFB; --border: #DDE8EE;
+      --navy: #0D2535; --teal: #0A8A7A; --teal-light: #12B09C; --teal-pale: #E6F5F3;
+      --red: #C84A2A; --red-pale: #FFF0EE; --red-mid: #E05A3A;
+      --amber: #C8952A; --amber-pale: #FFF8EE;
+      --green: #1E8A4A; --green-pale: #EDFDF5;
+      --text: #0D2535; --text-mid: #3A5A6A; --text-light: #7A9AAA;
+    }
+    body { background: var(--white); color: var(--text); font-family: 'Manrope', sans-serif; line-height: 1.6; }
+
+    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; height: 68px; background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'Libre Baskerville', serif; font-size: 22px; font-weight: 700; color: var(--navy); text-decoration: none; }
+    .nav-logo .dot { color: var(--teal); }
+
+    .breadcrumb { padding: 14px 80px; font-size: 13px; color: var(--text-light); display: flex; gap: 8px; background: var(--off-white); border-bottom: 1px solid var(--border); }
+    .breadcrumb a { color: var(--text-light); text-decoration: none; }
+
+    .hero { background: linear-gradient(160deg, var(--navy) 0%, #1E3A4E 100%); padding: 56px 80px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .meta-top { display: flex; gap: 10px; margin-bottom: 20px; }
+    .tag { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 12px; border-radius: 4px; }
+    .tag-emergency { background: rgba(200,74,42,0.2); color: #FF9980; }
+    .tag-vet { background: rgba(10,138,122,0.2); color: #80FFE8; }
+    h1 { font-family: 'Libre Baskerville', serif; font-size: clamp(30px, 4vw, 52px); font-weight: 700; line-height: 1.1; color: #EEF4F8; letter-spacing: -1px; margin-bottom: 18px; max-width: 760px; }
+    .sub { font-size: 17px; font-weight: 300; color: rgba(238,244,248,0.65); line-height: 1.75; max-width: 620px; margin-bottom: 32px; }
+    .byline { display: flex; align-items: center; gap: 20px; padding: 18px 0; border-top: 1px solid rgba(255,255,255,0.08); font-size: 13px; color: rgba(238,244,248,0.45); }
+    .av { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 20px; }
+    .an { font-size: 14px; font-weight: 600; color: #EEF4F8; }
+
+    .layout { display: grid; grid-template-columns: 1fr 300px; gap: 56px; padding: 56px 80px; max-width: 1200px; margin: 0 auto; }
+
+    .body h2 { font-family: 'Libre Baskerville', serif; font-size: 26px; font-weight: 700; color: var(--navy); margin: 40px 0 14px; letter-spacing: -0.5px; }
+    .body p { font-size: 16px; line-height: 1.85; color: var(--text-mid); margin-bottom: 16px; }
+    .body strong { color: var(--navy); }
+
+    /* URGENCY LEVELS */
+    .emergency-sign { background: var(--red-pale); border: 1.5px solid rgba(200,74,42,0.2); border-left: 5px solid var(--red); border-radius: 0 12px 12px 0; padding: 22px 28px; margin: 16px 0; }
+    .warning-sign { background: var(--amber-pale); border: 1.5px solid rgba(200,149,42,0.2); border-left: 5px solid var(--amber); border-radius: 0 12px 12px 0; padding: 22px 28px; margin: 16px 0; }
+    .ok-sign { background: var(--green-pale); border: 1.5px solid rgba(30,138,74,0.2); border-left: 5px solid var(--green); border-radius: 0 12px 12px 0; padding: 22px 28px; margin: 16px 0; }
+
+    .sign-label { font-size: 10px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 8px; }
+    .sign-label.em { color: var(--red); }
+    .sign-label.wa { color: var(--amber); }
+    .sign-label.ok { color: var(--green); }
+
+    .sign-title { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .sign-desc { font-size: 15px; color: var(--text-mid); line-height: 1.7; }
+
+    /* CHECKLIST GRID */
+    .emergency-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0; }
+    .eg-item { padding: 14px 16px; border-radius: 8px; display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--text-mid); }
+    .eg-item.red { background: var(--red-pale); }
+    .eg-item.amber { background: var(--amber-pale); }
+    .eg-item.green { background: var(--green-pale); }
+    .eg-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
+    .eg-dot.red { background: var(--red); }
+    .eg-dot.amber { background: var(--amber); }
+    .eg-dot.green { background: var(--green); }
+
+    .key-box { background: var(--teal-pale); border-left: 4px solid var(--teal); border-radius: 0 12px 12px 0; padding: 20px 24px; margin: 28px 0; }
+    .key-label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
+    .key-box p { font-size: 15px; color: var(--navy); font-weight: 500; margin: 0; }
+
+    .find-vet-cta { background: var(--navy); border-radius: 16px; padding: 28px 32px; margin: 32px 0; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+    .fv-title { font-family: 'Libre Baskerville', serif; font-size: 22px; font-weight: 700; color: #EEF4F8; margin-bottom: 8px; }
+    .fv-desc { font-size: 14px; color: rgba(238,244,248,0.55); }
+    .fv-btn { background: var(--teal); color: white; padding: 14px 28px; border-radius: 8px; font-size: 14px; font-weight: 700; text-decoration: none; white-space: nowrap; transition: background 0.2s; }
+    .fv-btn:hover { background: var(--teal-light); }
+
+    .sidebar { position: sticky; top: 84px; align-self: start; display: flex; flex-direction: column; gap: 18px; }
+    .sc { background: var(--off-white); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
+    .sc-title { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-light); margin-bottom: 14px; }
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .toc-list a { font-size: 13px; color: var(--text-mid); text-decoration: none; display: flex; gap: 10px; }
+    .toc-list a:hover { color: var(--teal); }
+    .emergency-sc { background: var(--red-pale); border: 1px solid rgba(200,74,42,0.15); border-radius: 14px; padding: 20px; }
+    .esc-title { font-size: 14px; font-weight: 700; color: var(--red); margin-bottom: 12px; }
+    .esc-desc { font-size: 13px; color: var(--text-mid); line-height: 1.6; margin-bottom: 14px; }
+    .esc-btn { display: block; background: var(--red-mid); color: white; padding: 11px; border-radius: 6px; text-align: center; font-size: 13px; font-weight: 700; text-decoration: none; }
+    .nl-sc { background: var(--teal-pale); border: 1px solid rgba(10,138,122,0.15); border-radius: 14px; padding: 20px; }
+    .nl-title { font-family: 'Libre Baskerville', serif; font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .nl-sc p { font-size: 13px; color: var(--text-light); margin-bottom: 12px; }
+    .nl-in { width: 100%; padding: 10px 12px; border: 1.5px solid rgba(10,138,122,0.2); border-radius: 6px; font-family: 'Manrope', sans-serif; font-size: 13px; color: var(--text); background: white; outline: none; margin-bottom: 8px; }
+    .nl-btn { width: 100%; padding: 10px; background: var(--teal); color: white; border: none; border-radius: 6px; font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 700; cursor: pointer; }
+
+    footer { background: var(--navy); padding: 28px 80px; display: flex; justify-content: space-between; align-items: center; color: rgba(238,244,248,0.4); font-size: 13px; }
+    footer a { color: rgba(238,244,248,0.4); text-decoration: none; }
+    .fl { font-family: 'Libre Baskerville', serif; font-size: 20px; font-weight: 700; color: #EEF4F8; }
+    .fl .dot { color: var(--teal); }
+  </style>
+</head>
+<body>
+<nav><a href="/" class="nav-logo">Vets<span class="dot">.</span>co</a></nav>
+<div class="breadcrumb"><a href="/">Home</a> › <a href="#">Pet Health</a> › When to Go to an Emergency Vet</div>
+
+<div class="hero">
+  <div class="meta-top">
+    <span class="tag tag-emergency">🚨 Emergency Guide</span>
+    <span class="tag tag-vet">✓ DVM Reviewed</span>
+  </div>
+  <h1>When to Go to an Emergency Vet — 15 Signs That Can't Wait</h1>
+  <p class="sub">Knowing the difference between "call the vet in the morning" and "go right now" is one of the most important things a pet owner can know. A board-certified emergency veterinarian explains exactly where the line is.</p>
+  <div class="byline">
+    <div class="av">🚑</div>
+    <div>
+      <div class="an">Dr. James Callahan, DVM, DACVECC</div>
+      <div style="font-size:13px">Diplomate, American College of Veterinary Emergency & Critical Care · 20 years</div>
+    </div>
+    <span>Updated May 2025</span>
+    <span>📖 8 min read</span>
+  </div>
+</div>
+
+<div class="layout">
+  <article class="body">
+    <p>In 20 years of emergency veterinary practice, the cases I find most heartbreaking are the ones that came in 12 hours too late. Not because the owner didn't care — they cared deeply — but because they didn't know that what they were looking at was an emergency.</p>
+    <p>This guide is designed to fix that. Below you'll find a clear system for categorizing pet symptoms by urgency. Save it. Share it. Know it before you need it.</p>
+
+    <div class="key-box">
+      <div class="key-label">The Rule of Thumb</div>
+      <p>When in doubt, call. Every emergency vet clinic has a triage line. Describing what you're seeing to a veterinary professional takes three minutes and can save your pet's life — or save you an unnecessary trip. Never let the possibility of an overreaction stop you from calling.</p>
+    </div>
+
+    <h2>🔴 Go to Emergency Now — Do Not Wait</h2>
+    <p>These symptoms require an emergency veterinary clinic immediately. Do not wait for your regular vet to open. Do not "watch and see." Get in the car now.</p>
+
+    <div class="emergency-sign">
+      <div class="sign-label em">🚨 Emergency</div>
+      <div class="sign-title">Suspected GDV / Bloat (Large & Deep-Chested Breeds)</div>
+      <p class="sign-desc">If your large breed dog (Great Dane, German Shepherd, Standard Poodle, Labrador, Weimaraner) is retching unproductively — trying to vomit but nothing comes up — and the abdomen appears distended or hard, this is gastric dilatation-volvulus. The stomach has twisted. Without surgery within hours, this is fatal. This is the most time-critical condition in veterinary medicine.</p>
+    </div>
+
+    <div class="emergency-sign">
+      <div class="sign-label em">🚨 Emergency</div>
+      <div class="sign-title">Difficulty Breathing / Labored Respiration</div>
+      <p class="sign-desc">Open-mouth breathing in cats, visible effort with each breath, blue or purple gums, or breathing with the elbows turned out — any of these indicates respiratory compromise. Causes include pleural effusion, heart failure, pneumonia, anaphylaxis, or tracheal obstruction. Oxygen deprivation causes irreversible brain damage within minutes.</p>
+    </div>
+
+    <div class="emergency-sign">
+      <div class="sign-label em">🚨 Emergency</div>
+      <div class="sign-title">Blue, White, or Gray Gums</div>
+      <p class="sign-desc">Normal gum color is salmon pink. Blue gums (cyanosis) indicate oxygen deprivation. White or pale gums suggest shock or severe blood loss. Gray gums indicate circulatory failure. Check your pet's gum color regularly when they're healthy so you know their normal baseline.</p>
+    </div>
+
+    <div class="emergency-sign">
+      <div class="sign-label em">🚨 Emergency</div>
+      <div class="sign-title">Collapse or Inability to Stand</div>
+      <p class="sign-desc">A pet that collapses and cannot rise, or whose hind legs suddenly stop working, requires emergency evaluation. Causes range from internal bleeding to spinal injury to cardiac events. Do not attempt to make them walk — immobilize them and transport carefully.</p>
+    </div>
+
+    <div class="emergency-sign">
+      <div class="sign-label em">🚨 Emergency</div>
+      <div class="sign-title">Seizures (First-time or Multiple in 24 Hours)</div>
+      <p class="sign-desc">A first seizure in a pet with no seizure history always warrants emergency evaluation. Multiple seizures in 24 hours (cluster seizures) or a seizure lasting more than 5 minutes (status epilepticus) are neurological emergencies requiring immediate intervention.</p>
+    </div>
+
+    <div class="emergency-sign">
+      <div class="sign-label em">🚨 Emergency</div>
+      <div class="sign-title">Known or Suspected Toxin Ingestion</div>
+      <p class="sign-desc">If you know or suspect your pet has ingested: xylitol, rat poison (any type), grapes or raisins, onions in quantity, acetaminophen (Tylenol — especially in cats), ibuprofen, antifreeze, or any medication not prescribed for them — go immediately. Time to treatment is critical for many toxins. Do not induce vomiting unless specifically directed by a vet.</p>
+    </div>
+
+    <div class="emergency-sign">
+      <div class="sign-label em">🚨 Emergency</div>
+      <div class="sign-title">Urinary Blockage (Especially Male Cats)</div>
+      <p class="sign-desc">A male cat that is straining to urinate, crying in the litter box, or producing no urine has likely blocked. This is fatal within 24–48 hours without treatment. Do not wait. Female cats and dogs can also block but it's far less common. Any pet straining to urinate with no output should be seen immediately.</p>
+    </div>
+
+    <div class="emergency-sign">
+      <div class="sign-label em">🚨 Emergency</div>
+      <div class="sign-title">Suspected Broken Bones or Severe Trauma</div>
+      <p class="sign-desc">A pet that was hit by a car, fell from height, or was attacked by another animal should be seen immediately even if they appear okay. Internal injuries, internal bleeding, pneumothorax, and delayed shock are common after trauma and may not be immediately visible.</p>
+    </div>
+
+    <h2>🟡 Urgent — Same Day Veterinary Appointment</h2>
+    <p>These symptoms don't necessarily require an emergency room, but should not wait until tomorrow. Call your regular vet first thing in the morning or go to urgent care today.</p>
+
+    <div class="warning-sign">
+      <div class="sign-label wa">⚠️ Urgent</div>
+      <div class="sign-title">Blood in Vomit or Stool</div>
+      <p class="sign-desc">Fresh red blood or digested blood (dark, tarry stools) indicates GI bleeding. While some causes are minor, this symptom always warrants same-day evaluation. Do not wait to see if it resolves on its own.</p>
+    </div>
+
+    <div class="warning-sign">
+      <div class="sign-label wa">⚠️ Urgent</div>
+      <div class="sign-title">Eye Injury or Sudden Onset Eye Problem</div>
+      <p class="sign-desc">Eyes are extremely time-sensitive. A scratch on the cornea, sudden cloudiness, significant discharge, squinting, or an eye that appears to be changing size can all deteriorate rapidly. Same-day evaluation is recommended for any new eye symptom.</p>
+    </div>
+
+    <div class="warning-sign">
+      <div class="sign-label wa">⚠️ Urgent</div>
+      <div class="sign-title">Persistent Vomiting or Diarrhea (6+ Episodes)</div>
+      <p class="sign-desc">Occasional vomiting or one episode of diarrhea is usually not urgent. Six or more episodes in 24 hours, especially with lethargy or dehydration signs, warrants same-day evaluation. Check: can your pet walk normally? Are they responsive? Dehydration in small dogs and cats can become serious quickly.</p>
+    </div>
+
+    <div class="warning-sign">
+      <div class="sign-label wa">⚠️ Urgent</div>
+      <div class="sign-title">Obvious Pain — Crying, Guarding, Won't Move</div>
+      <p class="sign-desc">Vocalization when touched, reluctance to move, hunched posture, or aggressive behavior in a normally gentle pet all indicate significant pain. Pain management is a medical issue and should not be addressed with human medications — many are toxic to pets. Same-day evaluation.</p>
+    </div>
+
+    <h2>🟢 Schedule Within the Week</h2>
+
+    <div class="ok-sign">
+      <div class="sign-label ok">Schedule Soon</div>
+      <div class="sign-title">Gradual Weight Loss, Increased Thirst, or Appetite Changes</div>
+      <p class="sign-desc">These symptoms developing over days or weeks are unlikely to be immediately life-threatening, but represent significant diagnostic flags. Schedule within 1–3 days, not "at the next annual check." Early detection of conditions like kidney disease, diabetes, and hypothyroidism dramatically improves outcomes.</p>
+    </div>
+
+    <div class="find-vet-cta">
+      <div>
+        <div class="fv-title">Need to find an emergency vet near you?</div>
+        <p class="fv-desc">Vets.co lists verified emergency clinics with hours, distance, and ratings. Find one before you need one.</p>
+      </div>
+      <a href="/find-a-vet?type=emergency" class="fv-btn">Find Emergency Vets →</a>
+    </div>
+
+    <h2>What to Do While Transporting to an Emergency Vet</h2>
+    <p><strong>Keep them calm and warm.</strong> Cover with a blanket, minimize handling, and speak quietly. Stress worsens many conditions.</p>
+    <p><strong>Do not give medications.</strong> Human pain relievers, sleep aids, and antihistamines are frequently toxic to pets. Do not administer anything without vet guidance.</p>
+    <p><strong>Call ahead.</strong> Most emergency vet clinics will want a brief heads-up on what you're bringing in. This allows them to prepare and tells you if there's something you should do in transit.</p>
+    <p><strong>Know your pet's medical history.</strong> If possible, bring any medications they're on, their vaccination records, and information about anything they may have ingested.</p>
+
+  </article>
+
+  <aside class="sidebar">
+    <div class="emergency-sc">
+      <div class="esc-title">🚨 Need an Emergency Vet Now?</div>
+      <p class="esc-desc">Search verified 24-hour emergency veterinary clinics near you — sorted by distance and rating.</p>
+      <a href="#" class="esc-btn">Find Emergency Vets Near Me →</a>
+    </div>
+    <div class="sc">
+      <div class="sc-title">In This Guide</div>
+      <ul class="toc-list">
+        <li><a href="#">🔴 Go Now (8 emergencies)</a></li>
+        <li><a href="#">🟡 Urgent — Same Day (4 symptoms)</a></li>
+        <li><a href="#">🟢 Schedule Soon (1 category)</a></li>
+        <li><a href="#">What to Do in Transit</a></li>
+      </ul>
+    </div>
+    <div class="nl-sc">
+      <div class="nl-title">Free Pet Health Newsletter</div>
+      <p>Vet-written guidance, seasonal health alerts, and expert Q&A every Tuesday.</p>
+      <input type="email" class="nl-in" placeholder="your@email.com">
+      <button class="nl-btn">Subscribe Free</button>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <a href="/" class="fl">Vets<span class="dot">.</span>co</a>
+  <span>© 2025 Vets.co · <a href="#">Medical Disclaimer</a> · <a href="#">Privacy Policy</a></span>
+</footer>
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Amanda Reyes, DVM — Veterinary Internal Medicine | Vets.co</title>
+  <meta name="description" content="View Dr. Amanda Reyes's veterinary profile — specialties, credentials, patient reviews, clinic hours, and book an appointment. Verified veterinarian on Vets.co.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white: #FFFFFF; --off-white: #F8FAFB; --slate-50: #F1F5F9;
+      --slate-100: #E2EAF0; --border: #DDE8EE;
+      --navy: #0D2535; --teal: #0A8A7A; --teal-light: #12B09C;
+      --teal-pale: #E6F5F3; --text: #0D2535; --text-mid: #3A5A6A;
+      --text-light: #7A9AAA; --gold: #C8952A; --green: #22C55E;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--white); color: var(--text); font-family: 'Manrope', sans-serif; line-height: 1.6; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 60px; height: 68px;
+      background: rgba(255,255,255,0.96); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-family: 'Libre Baskerville', serif; font-size: 22px; font-weight: 700; color: var(--navy); text-decoration: none; }
+    .nav-logo .dot { color: var(--teal); }
+    .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
+    .nav-links a { font-size: 13px; font-weight: 600; color: var(--text-mid); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--teal); }
+
+    .breadcrumb { padding: 14px 80px; font-size: 13px; color: var(--text-light); display: flex; align-items: center; gap: 8px; background: var(--slate-50); border-bottom: 1px solid var(--border); }
+    .breadcrumb a { color: var(--text-light); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--teal); }
+    .sep { color: var(--border); }
+
+    /* VET HERO */
+    .vet-hero { background: linear-gradient(160deg, var(--navy) 0%, #1A3A4E 100%); padding: 60px 80px; display: grid; grid-template-columns: auto 1fr auto; gap: 40px; align-items: start; }
+    .vet-avatar-large { width: 120px; height: 120px; border-radius: 20px; background: var(--teal-pale); display: flex; align-items: center; justify-content: center; font-size: 52px; flex-shrink: 0; border: 3px solid rgba(10,138,122,0.3); }
+    .vet-hero-info { }
+    .verified-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .verified-badge-large { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: var(--teal-light); background: rgba(10,138,122,0.12); border: 1px solid rgba(10,138,122,0.25); padding: 5px 12px; border-radius: 4px; }
+    .vet-specialty-badge { display: inline-flex; align-items: center; font-size: 12px; font-weight: 600; color: rgba(238,244,248,0.5); background: rgba(255,255,255,0.06); padding: 5px 12px; border-radius: 4px; }
+    .vet-hero-name { font-family: 'Libre Baskerville', serif; font-size: clamp(28px, 3.5vw, 44px); font-weight: 700; color: #EEF4F8; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .vet-hero-cred { font-size: 16px; color: var(--teal-light); font-weight: 600; margin-bottom: 8px; }
+    .vet-hero-location { font-size: 14px; color: rgba(238,244,248,0.5); margin-bottom: 20px; }
+    .vet-hero-stats { display: flex; gap: 28px; }
+    .vhs { }
+    .vhs strong { display: block; font-family: 'Libre Baskerville', serif; font-size: 26px; font-weight: 700; color: #EEF4F8; line-height: 1; }
+    .vhs span { font-size: 12px; color: rgba(238,244,248,0.4); text-transform: uppercase; letter-spacing: 0.06em; }
+    .vet-hero-actions { display: flex; flex-direction: column; gap: 12px; min-width: 220px; }
+    .btn-book { background: var(--teal); color: white; padding: 14px 24px; border-radius: 8px; font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 700; border: none; cursor: pointer; width: 100%; transition: background 0.2s; }
+    .btn-book:hover { background: var(--teal-light); }
+    .btn-call { background: transparent; color: #EEF4F8; padding: 13px 24px; border-radius: 8px; font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 600; border: 1px solid rgba(255,255,255,0.2); cursor: pointer; width: 100%; transition: border-color 0.2s; }
+    .btn-call:hover { border-color: var(--teal-light); color: var(--teal-light); }
+    .availability-row { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--green); font-weight: 600; justify-content: center; }
+    .avail-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
+
+    /* CONTENT */
+    .content-layout { display: grid; grid-template-columns: 1fr 320px; gap: 60px; padding: 60px 80px; }
+
+    /* TABS */
+    .tabs { display: flex; gap: 0; border-bottom: 2px solid var(--border); margin-bottom: 40px; }
+    .tab { padding: 14px 24px; font-size: 14px; font-weight: 600; color: var(--text-light); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all 0.2s; }
+    .tab.active { color: var(--teal); border-bottom-color: var(--teal); }
+    .tab:hover { color: var(--text-mid); }
+
+    /* ABOUT */
+    .profile-block { margin-bottom: 40px; }
+    .profile-block h2 { font-family: 'Libre Baskerville', serif; font-size: 24px; font-weight: 700; color: var(--navy); margin-bottom: 16px; }
+    .profile-block p { font-size: 16px; color: var(--text-mid); line-height: 1.8; margin-bottom: 14px; }
+
+    /* SPECIALTIES */
+    .specialty-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .specialty-chip { font-size: 13px; font-weight: 600; padding: 8px 16px; border-radius: 6px; background: var(--teal-pale); color: var(--teal); border: 1px solid rgba(10,138,122,0.15); }
+
+    /* CREDENTIALS */
+    .credential-list { display: flex; flex-direction: column; gap: 14px; }
+    .credential-item { display: flex; gap: 14px; padding: 16px; border: 1px solid var(--border); border-radius: 10px; background: var(--off-white); }
+    .cred-icon { font-size: 22px; flex-shrink: 0; }
+    .cred-title { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
+    .cred-detail { font-size: 13px; color: var(--text-light); }
+
+    /* REVIEWS */
+    .reviews-summary { display: flex; gap: 40px; align-items: center; padding: 24px; background: var(--slate-50); border-radius: 12px; margin-bottom: 28px; }
+    .rs-score { text-align: center; }
+    .rs-score-num { font-family: 'Libre Baskerville', serif; font-size: 56px; font-weight: 700; color: var(--navy); line-height: 1; display: block; }
+    .rs-stars { color: var(--gold); font-size: 20px; margin: 4px 0; }
+    .rs-count { font-size: 13px; color: var(--text-light); }
+    .rs-bars { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+    .rs-bar-row { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-light); }
+    .rs-bar { flex: 1; height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+    .rs-bar-fill { height: 100%; background: var(--gold); border-radius: 3px; }
+
+    .review-card { border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px; }
+    .review-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+    .reviewer-name { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
+    .reviewer-pet { font-size: 13px; color: var(--text-light); }
+    .review-stars { color: var(--gold); font-size: 14px; }
+    .review-date { font-size: 12px; color: var(--text-light); }
+    .review-text { font-size: 15px; color: var(--text-mid); line-height: 1.7; }
+    .verified-review { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; color: var(--teal); margin-top: 10px; }
+
+    /* SIDEBAR */
+    .sidebar { position: sticky; top: 84px; align-self: start; display: flex; flex-direction: column; gap: 18px; }
+    .sidebar-card { background: var(--slate-50); border: 1px solid var(--border); border-radius: 14px; padding: 22px; }
+    .sc-title { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-light); margin-bottom: 16px; }
+
+    .hours-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-day { color: var(--text-mid); font-weight: 500; }
+    .hours-time { color: var(--navy); font-weight: 600; }
+    .hours-closed { color: var(--text-light); }
+
+    .insurance-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .ins-chip { font-size: 12px; padding: 5px 10px; border-radius: 4px; background: white; border: 1px solid var(--border); color: var(--text-mid); font-weight: 500; }
+
+    .location-block { }
+    .location-name { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .location-address { font-size: 14px; color: var(--text-light); line-height: 1.5; margin-bottom: 14px; }
+    .location-map { width: 100%; height: 120px; background: var(--slate-100); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 28px; }
+    .directions-link { display: block; margin-top: 12px; font-size: 13px; font-weight: 600; color: var(--teal); text-decoration: none; }
+
+    footer { background: var(--navy); padding: 32px 80px; display: flex; justify-content: space-between; align-items: center; color: rgba(238,244,248,0.4); font-size: 13px; }
+    footer a { color: rgba(238,244,248,0.4); text-decoration: none; }
+    .footer-logo { font-family: 'Libre Baskerville', serif; font-size: 20px; font-weight: 700; color: #EEF4F8; }
+    .footer-logo .dot { color: var(--teal); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Vets<span class="dot">.</span>co</a>
+  <ul class="nav-links">
+    <li><a href="#">Find a Vet</a></li>
+    <li><a href="#">Symptom Checker</a></li>
+    <li><a href="#">Pet Health</a></li>
+    <li><a href="#">For Vets</a></li>
+  </ul>
+</nav>
+
+<div class="breadcrumb">
+  <a href="/">Home</a><span class="sep">›</span>
+  <a href="#">Find a Vet</a><span class="sep">›</span>
+  <a href="#">Austin, TX</a><span class="sep">›</span>
+  <a href="#">Internal Medicine</a><span class="sep">›</span>
+  <span>Dr. Amanda Reyes</span>
+</div>
+
+<!-- VET HERO -->
+<div class="vet-hero">
+  <div class="vet-avatar-large">👩‍⚕️</div>
+  <div class="vet-hero-info">
+    <div class="verified-row">
+      <span class="verified-badge-large">✓ License Verified</span>
+      <span class="vet-specialty-badge">Internal Medicine · Small Animal</span>
+    </div>
+    <h1 class="vet-hero-name">Dr. Amanda Reyes, DVM</h1>
+    <div class="vet-hero-cred">Doctor of Veterinary Medicine · University of California, Davis</div>
+    <div class="vet-hero-location">📍 Austin Animal Internal Medicine · Austin, TX · 2.1 miles away</div>
+    <div class="vet-hero-stats">
+      <div class="vhs"><strong>4.97</strong><span>Rating</span></div>
+      <div class="vhs"><strong>312</strong><span>Reviews</span></div>
+      <div class="vhs"><strong>14 yrs</strong><span>Experience</span></div>
+      <div class="vhs"><strong>1,800+</strong><span>Patients</span></div>
+    </div>
+  </div>
+  <div class="vet-hero-actions">
+    <div class="availability-row"><div class="avail-dot"></div>Available tomorrow</div>
+    <button class="btn-book">📅 Book Appointment</button>
+    <button class="btn-call">📞 (512) 555-0147</button>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content-layout">
+  <div class="main-content">
+    <div class="tabs">
+      <div class="tab active">About</div>
+      <div class="tab">Reviews (312)</div>
+      <div class="tab">Credentials</div>
+      <div class="tab">Services & Fees</div>
+    </div>
+
+    <div class="profile-block">
+      <h2>About Dr. Reyes</h2>
+      <p>Dr. Amanda Reyes is a board-certified specialist in small animal internal medicine with 14 years of clinical experience. After earning her DVM from UC Davis School of Veterinary Medicine, she completed a three-year internal medicine residency at Cornell University's College of Veterinary Medicine before joining Austin Animal Internal Medicine in 2015.</p>
+      <p>Dr. Reyes specializes in complex diagnostic cases — particularly chronic diseases of the kidneys, liver, endocrine system, and gastrointestinal tract in dogs and cats. She is known for her clear communication with pet owners and her commitment to evidence-based medicine.</p>
+      <p>"I believe the most important thing I can do is help owners understand what's happening with their pet and what the options are. Medicine should never feel like a black box."</p>
+    </div>
+
+    <div class="profile-block">
+      <h2>Specialties</h2>
+      <div class="specialty-chips">
+        <span class="specialty-chip">Internal Medicine</span>
+        <span class="specialty-chip">Chronic Kidney Disease</span>
+        <span class="specialty-chip">Diabetes Management</span>
+        <span class="specialty-chip">Liver Disease</span>
+        <span class="specialty-chip">Endocrinology</span>
+        <span class="specialty-chip">Gastrointestinal Disorders</span>
+        <span class="specialty-chip">Respiratory Disease</span>
+        <span class="specialty-chip">Immune-Mediated Disorders</span>
+        <span class="specialty-chip">Senior Pet Care</span>
+        <span class="specialty-chip">Diagnostic Ultrasound</span>
+      </div>
+    </div>
+
+    <div class="profile-block">
+      <h2>Education & Credentials</h2>
+      <div class="credential-list">
+        <div class="credential-item">
+          <span class="cred-icon">🎓</span>
+          <div>
+            <div class="cred-title">Doctor of Veterinary Medicine (DVM)</div>
+            <div class="cred-detail">University of California, Davis — School of Veterinary Medicine · 2010</div>
+          </div>
+        </div>
+        <div class="credential-item">
+          <span class="cred-icon">🏥</span>
+          <div>
+            <div class="cred-title">Residency — Small Animal Internal Medicine</div>
+            <div class="cred-detail">Cornell University College of Veterinary Medicine · 2010–2013</div>
+          </div>
+        </div>
+        <div class="credential-item">
+          <span class="cred-icon">🏅</span>
+          <div>
+            <div class="cred-title">Diplomate, American College of Veterinary Internal Medicine (DACVIM)</div>
+            <div class="cred-detail">Board Certified in Small Animal Internal Medicine · Since 2013</div>
+          </div>
+        </div>
+        <div class="credential-item">
+          <span class="cred-icon">📜</span>
+          <div>
+            <div class="cred-title">Texas State Veterinary License</div>
+            <div class="cred-detail">License #TX-48291 · Active · Verified by Vets.co · May 2025</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="profile-block">
+      <h2>Patient Reviews</h2>
+      <div class="reviews-summary">
+        <div class="rs-score">
+          <span class="rs-score-num">4.97</span>
+          <div class="rs-stars">★★★★★</div>
+          <div class="rs-count">312 verified reviews</div>
+        </div>
+        <div class="rs-bars">
+          <div class="rs-bar-row"><span style="width:16px">5★</span><div class="rs-bar"><div class="rs-bar-fill" style="width:96%"></div></div><span>96%</span></div>
+          <div class="rs-bar-row"><span style="width:16px">4★</span><div class="rs-bar"><div class="rs-bar-fill" style="width:3%"></div></div><span>3%</span></div>
+          <div class="rs-bar-row"><span style="width:16px">3★</span><div class="rs-bar"><div class="rs-bar-fill" style="width:1%"></div></div><span>1%</span></div>
+          <div class="rs-bar-row"><span style="width:16px">2★</span><div class="rs-bar"><div class="rs-bar-fill" style="width:0%"></div></div><span>0%</span></div>
+          <div class="rs-bar-row"><span style="width:16px">1★</span><div class="rs-bar"><div class="rs-bar-fill" style="width:0%"></div></div><span>0%</span></div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <div><div class="reviewer-name">Michael T.</div><div class="reviewer-pet">Dog owner — Labrador, 9 years old</div></div>
+          <div style="text-align:right"><div class="review-stars">★★★★★</div><div class="review-date">April 2025</div></div>
+        </div>
+        <p class="review-text">Dr. Reyes diagnosed my lab's kidney disease when two other vets couldn't figure out what was wrong. She explained everything clearly, outlined three treatment paths, and gave us her honest assessment of each. It's been six months and he's doing remarkably well on the treatment plan she recommended. I cannot recommend her highly enough.</p>
+        <div class="verified-review">✓ Verified Patient</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <div><div class="reviewer-name">Sarah L.</div><div class="reviewer-pet">Cat owner — Domestic Shorthair, 12 years old</div></div>
+          <div style="text-align:right"><div class="review-stars">★★★★★</div><div class="review-date">March 2025</div></div>
+        </div>
+        <p class="review-text">My elderly cat had been losing weight for months and no one could figure out why. Dr. Reyes ordered the right tests, found the issue (hyperthyroidism complicated by early CKD), and put together a treatment plan that's carefully balanced between the two conditions. She called personally to discuss the results. Exceptional doctor.</p>
+        <div class="verified-review">✓ Verified Patient</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <div><div class="reviewer-name">James K.</div><div class="reviewer-pet">Dog owner — Beagle, 6 years old</div></div>
+          <div style="text-align:right"><div class="review-stars">★★★★★</div><div class="review-date">February 2025</div></div>
+        </div>
+        <p class="review-text">We came to Dr. Reyes as a referral from our regular vet. She spent nearly an hour with us on the first appointment. She's incredibly thorough, listens to everything, and never makes you feel rushed. Her diagnosis was accurate and the treatment worked. The office staff are also excellent.</p>
+        <div class="verified-review">✓ Verified Patient</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <div class="sc-title">Clinic Hours</div>
+      <div class="hours-row"><span class="hours-day">Monday</span><span class="hours-time">8:00 AM – 6:00 PM</span></div>
+      <div class="hours-row"><span class="hours-day">Tuesday</span><span class="hours-time">8:00 AM – 6:00 PM</span></div>
+      <div class="hours-row"><span class="hours-day">Wednesday</span><span class="hours-time">8:00 AM – 6:00 PM</span></div>
+      <div class="hours-row"><span class="hours-day">Thursday</span><span class="hours-time">8:00 AM – 6:00 PM</span></div>
+      <div class="hours-row"><span class="hours-day">Friday</span><span class="hours-time">8:00 AM – 5:00 PM</span></div>
+      <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">9:00 AM – 1:00 PM</span></div>
+      <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-closed">Closed</span></div>
+    </div>
+
+    <div class="sidebar-card">
+      <div class="sc-title">Accepted Insurance</div>
+      <div class="insurance-chips">
+        <span class="ins-chip">Trupanion</span>
+        <span class="ins-chip">Healthy Paws</span>
+        <span class="ins-chip">Embrace</span>
+        <span class="ins-chip">ASPCA</span>
+        <span class="ins-chip">Nationwide</span>
+        <span class="ins-chip">Figo</span>
+        <span class="ins-chip">Lemonade</span>
+        <span class="ins-chip">MetLife</span>
+      </div>
+    </div>
+
+    <div class="sidebar-card">
+      <div class="sc-title">Location</div>
+      <div class="location-block">
+        <div class="location-name">Austin Animal Internal Medicine</div>
+        <div class="location-address">4821 Burnet Rd, Suite 200<br>Austin, TX 78756</div>
+        <div class="location-map">🗺️</div>
+        <a href="#" class="directions-link">→ Get Directions</a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <a href="/" class="footer-logo">Vets<span class="dot">.</span>co</a>
+  <span>© 2025 Vets.co · <a href="#">Privacy Policy</a> · <a href="#">Terms of Use</a></span>
+</footer>
+
+</body>
+</html>

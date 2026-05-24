@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vets.co — Find the Right Vet. Get Trusted Answers.</title>
+  <meta name="description" content="Vets.co connects pet owners with verified veterinarians, trusted health guidance, and AI-powered symptom checking. The modern veterinary platform.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white: #FFFFFF;
+      --off-white: #F8FAFB;
+      --slate-50: #F1F5F9;
+      --slate-100: #E2EAF0;
+      --slate-200: #C8D6E2;
+      --slate-400: #8AAABB;
+      --slate-600: #4A6A7A;
+      --slate-800: #1E3A4A;
+      --navy: #0D2535;
+      --teal: #0A8A7A;
+      --teal-light: #12B09C;
+      --teal-pale: #E6F5F3;
+      --red-pale: #FFF0EE;
+      --red-mid: #E05A3A;
+      --gold: #C8952A;
+      --text: #0D2535;
+      --text-mid: #3A5A6A;
+      --text-light: #7A9AAA;
+      --border: #DDE8EE;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--white);
+      color: var(--text);
+      font-family: 'Manrope', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 60px; height: 68px;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 22px; font-weight: 700;
+      color: var(--navy); text-decoration: none;
+      display: flex; align-items: center; gap: 3px;
+    }
+    .nav-logo .dot { color: var(--teal); }
+    .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+    .nav-links a {
+      font-size: 13px; font-weight: 600; color: var(--text-mid);
+      text-decoration: none; letter-spacing: 0.02em; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-cta {
+      background: var(--teal) !important; color: white !important;
+      padding: 9px 20px; border-radius: 6px;
+    }
+    .nav-cta:hover { background: var(--teal-light) !important; }
+
+    /* HERO */
+    .hero {
+      padding-top: 68px;
+      background: linear-gradient(160deg, var(--navy) 0%, #162F3E 55%, #1A3A4E 100%);
+      min-height: 88vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(to right, transparent, var(--teal), transparent);
+    }
+    /* Grid lines texture */
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(10,138,122,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(10,138,122,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 80px 60px 80px 80px;
+      position: relative; z-index: 2;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--teal-light);
+      background: rgba(10,138,122,0.12); border: 1px solid rgba(10,138,122,0.25);
+      padding: 7px 14px; border-radius: 4px; margin-bottom: 32px;
+      width: fit-content;
+    }
+    .hero-title {
+      font-family: 'Libre Baskerville', serif;
+      font-size: clamp(44px, 5vw, 72px);
+      font-weight: 700; line-height: 1.1;
+      color: #EEF4F8; letter-spacing: -1.5px;
+      margin-bottom: 24px;
+    }
+    .hero-title em { font-style: italic; color: var(--teal-light); }
+    .hero-sub {
+      font-size: 17px; font-weight: 300;
+      color: rgba(238,244,248,0.65);
+      line-height: 1.75; max-width: 460px; margin-bottom: 48px;
+    }
+
+    /* SEARCH BOX */
+    .search-box {
+      background: white;
+      border-radius: 12px;
+      padding: 8px;
+      display: flex;
+      gap: 0;
+      max-width: 520px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+      margin-bottom: 28px;
+    }
+    .search-field {
+      display: flex; align-items: center; gap: 10px;
+      flex: 1; padding: 10px 16px;
+      border-right: 1px solid var(--border);
+    }
+    .search-field:last-of-type { border-right: none; }
+    .search-icon { font-size: 16px; flex-shrink: 0; }
+    .search-field input {
+      border: none; outline: none;
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px; color: var(--text);
+      width: 100%; background: transparent;
+    }
+    .search-field input::placeholder { color: var(--text-light); }
+    .search-btn {
+      background: var(--teal); color: white;
+      border: none; border-radius: 8px;
+      padding: 12px 24px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px; font-weight: 700;
+      cursor: pointer; white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .search-btn:hover { background: var(--teal-light); }
+    .search-hints {
+      display: flex; gap: 12px; flex-wrap: wrap;
+    }
+    .hint {
+      font-size: 12px; color: rgba(238,244,248,0.4);
+      background: rgba(255,255,255,0.06);
+      padding: 5px 12px; border-radius: 20px;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .hint:hover { background: rgba(255,255,255,0.1); color: rgba(238,244,248,0.7); }
+
+    /* HERO RIGHT - stat panel */
+    .hero-right {
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      padding: 80px 60px;
+      position: relative; z-index: 2;
+      gap: 20px;
+    }
+    .stat-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 28px 32px;
+      width: 100%; max-width: 340px;
+      backdrop-filter: blur(4px);
+    }
+    .stat-card.highlight {
+      background: rgba(10,138,122,0.12);
+      border-color: rgba(10,138,122,0.25);
+    }
+    .stat-num {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 42px; font-weight: 700;
+      color: #EEF4F8; line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-num span { color: var(--teal-light); }
+    .stat-label { font-size: 13px; color: rgba(238,244,248,0.5); font-weight: 500; }
+    .stat-sub { font-size: 12px; color: rgba(238,244,248,0.3); margin-top: 4px; }
+
+    /* TRUST BAR */
+    .trust-bar {
+      background: var(--teal-pale);
+      border-bottom: 1px solid rgba(10,138,122,0.12);
+      padding: 16px 80px;
+      display: flex; align-items: center; gap: 40px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; font-weight: 600; color: var(--teal);
+    }
+    .trust-item .ti { font-size: 16px; }
+
+    /* SECTIONS */
+    section { padding: 96px 80px; }
+    .section-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--teal);
+      display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+    }
+    .section-label::before { content: ''; width: 24px; height: 2px; background: var(--teal); }
+    .section-title {
+      font-family: 'Libre Baskerville', serif;
+      font-size: clamp(32px, 3.5vw, 48px);
+      font-weight: 700; line-height: 1.15;
+      color: var(--navy); letter-spacing: -1px;
+      margin-bottom: 14px;
+    }
+    .section-sub {
+      font-size: 16px; color: var(--text-light);
+      max-width: 500px; line-height: 1.75;
+      margin-bottom: 56px;
+    }
+
+    /* HOW IT WORKS */
+    .how-section { background: var(--off-white); }
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 2px; background: var(--border);
+      border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
+    }
+    .step {
+      background: white; padding: 36px 28px;
+      position: relative;
+    }
+    .step-num {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 48px; font-weight: 700;
+      color: var(--slate-100); line-height: 1;
+      margin-bottom: 16px;
+    }
+    .step-icon { font-size: 28px; margin-bottom: 16px; display: block; }
+    .step-title {
+      font-size: 17px; font-weight: 700; color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .step-desc { font-size: 14px; color: var(--text-light); line-height: 1.65; }
+    .step-connector {
+      position: absolute; top: 36px; right: -14px;
+      width: 28px; height: 28px;
+      background: var(--teal); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 12px; font-weight: 700;
+      z-index: 2;
+    }
+    .step:last-child .step-connector { display: none; }
+
+    /* VET CARDS */
+    .directory-section { background: white; }
+    .directory-header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 40px;
+    }
+    .vet-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; margin-bottom: 36px;
+    }
+    .vet-card {
+      border: 1px solid var(--border); border-radius: 16px;
+      padding: 28px; transition: all 0.25s;
+      text-decoration: none; color: inherit; display: block;
+    }
+    .vet-card:hover {
+      border-color: var(--teal);
+      box-shadow: 0 8px 32px rgba(10,138,122,0.1);
+      transform: translateY(-4px);
+    }
+    .vet-top { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 16px; }
+    .vet-avatar {
+      width: 56px; height: 56px; border-radius: 12px;
+      background: var(--teal-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; flex-shrink: 0;
+    }
+    .vet-info { flex: 1; }
+    .vet-name { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 3px; }
+    .vet-specialty { font-size: 12px; color: var(--teal); font-weight: 600; margin-bottom: 4px; }
+    .vet-location { font-size: 12px; color: var(--text-light); }
+    .verified-badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 11px; font-weight: 700; color: var(--teal);
+      background: var(--teal-pale); padding: 3px 8px; border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .vet-rating {
+      display: flex; align-items: center; gap: 6px;
+      margin-bottom: 12px;
+    }
+    .stars { color: var(--gold); font-size: 13px; }
+    .rating-num { font-size: 13px; font-weight: 600; color: var(--text-mid); }
+    .rating-count { font-size: 12px; color: var(--text-light); }
+    .vet-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .vet-tag {
+      font-size: 11px; font-weight: 600;
+      padding: 4px 10px; border-radius: 20px;
+      background: var(--slate-50); color: var(--text-mid);
+    }
+    .vet-footer {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border);
+    }
+    .vet-availability {
+      font-size: 12px; font-weight: 600;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .avail-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+    }
+    .avail-dot.green { background: #22C55E; }
+    .avail-dot.yellow { background: #F59E0B; }
+    .book-btn {
+      font-size: 12px; font-weight: 700;
+      color: var(--teal); text-decoration: none;
+    }
+
+    /* AI SYMPTOM CHECKER */
+    .ai-section {
+      background: linear-gradient(135deg, var(--navy) 0%, #1A3A4E 100%);
+      position: relative; overflow: hidden;
+    }
+    .ai-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(10,138,122,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(10,138,122,0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .ai-container {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .ai-left .section-title { color: #EEF4F8; }
+    .ai-left .section-sub { color: rgba(238,244,248,0.55); }
+    .ai-features { display: flex; flex-direction: column; gap: 20px; }
+    .ai-feature {
+      display: flex; gap: 16px;
+      padding: 20px; border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.03);
+    }
+    .ai-feature-icon { font-size: 24px; flex-shrink: 0; }
+    .ai-feature-title { font-size: 15px; font-weight: 700; color: #EEF4F8; margin-bottom: 4px; }
+    .ai-feature-desc { font-size: 13px; color: rgba(238,244,248,0.45); line-height: 1.6; }
+    .ai-chat-ui {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px; padding: 28px;
+      backdrop-filter: blur(4px);
+    }
+    .chat-header {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 24px; padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .chat-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--teal); display: flex; align-items: center;
+      justify-content: center; font-size: 16px;
+    }
+    .chat-name { font-size: 14px; font-weight: 700; color: #EEF4F8; }
+    .chat-status { font-size: 11px; color: var(--teal-light); }
+    .chat-messages { display: flex; flex-direction: column; gap: 14px; margin-bottom: 20px; }
+    .msg {
+      padding: 12px 16px; border-radius: 12px;
+      font-size: 13px; line-height: 1.6; max-width: 85%;
+    }
+    .msg.ai {
+      background: rgba(255,255,255,0.07);
+      color: rgba(238,244,248,0.8);
+      border-bottom-left-radius: 4px;
+    }
+    .msg.user {
+      background: var(--teal); color: white;
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+    }
+    .msg.warning {
+      background: rgba(224,90,58,0.12);
+      border: 1px solid rgba(224,90,58,0.2);
+      color: #F0A090;
+      font-size: 12px;
+    }
+    .chat-input-row {
+      display: flex; gap: 8px;
+    }
+    .chat-input {
+      flex: 1; padding: 10px 14px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px; color: #EEF4F8;
+      font-family: 'Manrope', sans-serif; font-size: 13px;
+      outline: none;
+    }
+    .chat-input::placeholder { color: rgba(238,244,248,0.25); }
+    .chat-send {
+      padding: 10px 16px; background: var(--teal);
+      color: white; border: none; border-radius: 8px;
+      font-family: 'Manrope', sans-serif; font-size: 13px;
+      font-weight: 700; cursor: pointer;
+    }
+    .disclaimer {
+      font-size: 11px; color: rgba(238,244,248,0.25);
+      margin-top: 14px; text-align: center; line-height: 1.5;
+    }
+
+    /* B2B SECTION */
+    .b2b-section { background: var(--slate-50); }
+    .b2b-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .b2b-card {
+      background: white; border: 1px solid var(--border);
+      border-radius: 20px; padding: 40px;
+      text-decoration: none; color: inherit; display: block;
+      transition: all 0.25s;
+    }
+    .b2b-card:hover {
+      border-color: var(--teal);
+      box-shadow: 0 12px 40px rgba(10,138,122,0.08);
+      transform: translateY(-4px);
+    }
+    .b2b-icon { font-size: 40px; margin-bottom: 20px; display: block; }
+    .b2b-tag {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--teal); margin-bottom: 12px;
+    }
+    .b2b-title {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 24px; font-weight: 700; color: var(--navy);
+      margin-bottom: 12px; line-height: 1.25;
+    }
+    .b2b-desc { font-size: 14px; color: var(--text-light); line-height: 1.7; margin-bottom: 24px; }
+    .b2b-link {
+      font-size: 14px; font-weight: 700; color: var(--teal);
+      display: flex; align-items: center; gap: 8px; transition: gap 0.2s;
+    }
+    .b2b-link:hover { gap: 14px; }
+    .b2b-link::after { content: '→'; }
+
+    /* EMAIL */
+    .email-section { background: var(--teal-pale); text-align: center; }
+    .email-section .section-title { margin: 0 auto 14px; }
+    .email-section .section-sub { margin: 0 auto 40px; }
+    .email-form {
+      display: flex; gap: 12px; max-width: 460px; margin: 0 auto;
+    }
+    .email-input {
+      flex: 1; padding: 14px 18px;
+      border: 1.5px solid rgba(10,138,122,0.2);
+      border-radius: 8px;
+      font-family: 'Manrope', sans-serif; font-size: 14px;
+      color: var(--text); background: white; outline: none;
+      transition: border-color 0.2s;
+    }
+    .email-input:focus { border-color: var(--teal); }
+    .email-submit {
+      background: var(--teal); color: white; border: none;
+      padding: 14px 24px; border-radius: 8px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px; font-weight: 700;
+      cursor: pointer; white-space: nowrap;
+    }
+    .email-submit:hover { background: var(--teal-light); }
+    .email-trust { margin-top: 14px; font-size: 12px; color: var(--text-light); }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy); padding: 64px 80px 36px;
+      color: rgba(238,244,248,0.5);
+    }
+    .footer-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px; margin-bottom: 56px;
+    }
+    .footer-logo {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 24px; font-weight: 700; color: #EEF4F8;
+      display: block; margin-bottom: 14px; text-decoration: none;
+    }
+    .footer-logo .dot { color: var(--teal); }
+    .footer-brand p { font-size: 14px; line-height: 1.7; max-width: 240px; margin-bottom: 20px; }
+    .footer-col h4 {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: #EEF4F8; margin-bottom: 18px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 9px; }
+    .footer-col a {
+      font-size: 14px; color: rgba(238,244,248,0.4);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--teal-light); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 28px; display: flex;
+      justify-content: space-between; align-items: center;
+      font-size: 12px;
+    }
+    .footer-bottom a { color: rgba(238,244,248,0.3); text-decoration: none; }
+
+    /* ANIM */
+    .fade-up {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Vets<span class="dot">.</span>co</a>
+  <ul class="nav-links">
+    <li><a href="#directory">Find a Vet</a></li>
+    <li><a href="#ai">Symptom Checker</a></li>
+    <li><a href="#health">Pet Health</a></li>
+    <li><a href="#for-vets">For Vets</a></li>
+    <li><a href="#newsletter" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">🏥 Trusted Veterinary Platform</div>
+    <h1 class="hero-title">
+      Find the Right Vet.<br>
+      Get <em>Trusted</em> Answers.
+    </h1>
+    <p class="hero-sub">
+      Search verified veterinarians near you, check symptoms with AI-assisted guidance, and access expert pet health content — all in one trusted platform.
+    </p>
+
+    <div class="search-box">
+      <div class="search-field">
+        <span class="search-icon">🐾</span>
+        <input type="text" placeholder="Specialty or pet type">
+      </div>
+      <div class="search-field">
+        <span class="search-icon">📍</span>
+        <input type="text" placeholder="City or ZIP code">
+      </div>
+      <button class="search-btn">Find Vets →</button>
+    </div>
+
+    <div class="search-hints">
+      <span class="hint">Emergency Vet</span>
+      <span class="hint">Dog Dermatologist</span>
+      <span class="hint">Cat Cardiologist</span>
+      <span class="hint">Exotic Animals</span>
+      <span class="hint">24-Hour Clinic</span>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="stat-card highlight">
+      <div class="stat-num">48<span>K+</span></div>
+      <div class="stat-label">Verified Veterinarians Listed</div>
+      <div class="stat-sub">Across all 50 states · Updated weekly</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">230<span>+</span></div>
+      <div class="stat-label">Veterinary Specialties Covered</div>
+      <div class="stat-sub">From general practice to oncology</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">4.9<span>★</span></div>
+      <div class="stat-label">Average Vet Rating</div>
+      <div class="stat-sub">Based on verified patient reviews</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="ti">✓</span> All vets license-verified</div>
+  <div class="trust-item"><span class="ti">✓</span> Reviews from real patients</div>
+  <div class="trust-item"><span class="ti">✓</span> AI symptom guidance reviewed by DVMs</div>
+  <div class="trust-item"><span class="ti">✓</span> HIPAA-compliant data handling</div>
+  <div class="trust-item"><span class="ti">✓</span> No sponsored placement in search results</div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div class="section-label">Simple Process</div>
+  <h2 class="section-title">How Vets.co Works</h2>
+  <p class="section-sub">From first symptom to the right specialist — in minutes.</p>
+  <div class="steps-grid fade-up">
+    <div class="step">
+      <div class="step-num">01</div>
+      <span class="step-icon">🔍</span>
+      <div class="step-title">Search by Need</div>
+      <p class="step-desc">Enter your location and what you're looking for — specialty, pet type, or emergency — and we surface the right vets instantly.</p>
+      <div class="step-connector">→</div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <span class="step-icon">📋</span>
+      <div class="step-title">Compare Profiles</div>
+      <p class="step-desc">View credentials, specialties, ratings, patient reviews, accepted insurance, and availability — all on one page.</p>
+      <div class="step-connector">→</div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <span class="step-icon">📅</span>
+      <div class="step-title">Book or Call</div>
+      <p class="step-desc">Request an appointment directly through Vets.co or call the clinic — whichever is faster for your situation.</p>
+      <div class="step-connector">→</div>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <span class="step-icon">💚</span>
+      <div class="step-title">Ongoing Support</div>
+      <p class="step-desc">Access your pet's health guides, follow-up resources, and our AI symptom checker between visits.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VET DIRECTORY -->
+<section class="directory-section" id="directory">
+  <div class="directory-header fade-up">
+    <div>
+      <div class="section-label">Verified Directory</div>
+      <h2 class="section-title">Featured Veterinarians</h2>
+    </div>
+    <a href="#" style="font-size:14px; font-weight:700; color:var(--teal); text-decoration:none;">Browse all vets →</a>
+  </div>
+
+  <div class="vet-grid fade-up">
+    <a href="#" class="vet-card">
+      <div class="vet-top">
+        <div class="vet-avatar">👩‍⚕️</div>
+        <div class="vet-info">
+          <div class="vet-name">Dr. Amanda Reyes, DVM</div>
+          <div class="vet-specialty">Internal Medicine · Small Animal</div>
+          <div class="vet-location">📍 Austin, TX · 2.1 mi</div>
+        </div>
+        <div class="verified-badge">✓ Verified</div>
+      </div>
+      <div class="vet-rating">
+        <span class="stars">★★★★★</span>
+        <span class="rating-num">4.97</span>
+        <span class="rating-count">(312 reviews)</span>
+      </div>
+      <div class="vet-tags">
+        <span class="vet-tag">Dogs & Cats</span>
+        <span class="vet-tag">Diabetes</span>
+        <span class="vet-tag">Kidney Disease</span>
+        <span class="vet-tag">Senior Pets</span>
+      </div>
+      <div class="vet-footer">
+        <div class="vet-availability"><span class="avail-dot green"></span> <span style="color:#22C55E; font-size:12px; font-weight:600;">Available tomorrow</span></div>
+        <span class="book-btn">Book appointment →</span>
+      </div>
+    </a>
+
+    <a href="#" class="vet-card">
+      <div class="vet-top">
+        <div class="vet-avatar">👨‍⚕️</div>
+        <div class="vet-info">
+          <div class="vet-name">Dr. James Okafor, DVM, MS</div>
+          <div class="vet-specialty">Veterinary Cardiology</div>
+          <div class="vet-location">📍 Chicago, IL · 4.8 mi</div>
+        </div>
+        <div class="verified-badge">✓ Verified</div>
+      </div>
+      <div class="vet-rating">
+        <span class="stars">★★★★★</span>
+        <span class="rating-num">4.94</span>
+        <span class="rating-count">(187 reviews)</span>
+      </div>
+      <div class="vet-tags">
+        <span class="vet-tag">Cardiology</span>
+        <span class="vet-tag">Heart Disease</span>
+        <span class="vet-tag">Echocardiography</span>
+      </div>
+      <div class="vet-footer">
+        <div class="vet-availability"><span class="avail-dot yellow"></span> <span style="color:#F59E0B; font-size:12px; font-weight:600;">Next opening: Thu</span></div>
+        <span class="book-btn">Book appointment →</span>
+      </div>
+    </a>
+
+    <a href="#" class="vet-card">
+      <div class="vet-top">
+        <div class="vet-avatar">👩‍⚕️</div>
+        <div class="vet-info">
+          <div class="vet-name">Dr. Lisa Tran, DVM, DACVD</div>
+          <div class="vet-specialty">Veterinary Dermatology</div>
+          <div class="vet-location">📍 Los Angeles, CA · 3.4 mi</div>
+        </div>
+        <div class="verified-badge">✓ Verified</div>
+      </div>
+      <div class="vet-rating">
+        <span class="stars">★★★★★</span>
+        <span class="rating-num">4.91</span>
+        <span class="rating-count">(428 reviews)</span>
+      </div>
+      <div class="vet-tags">
+        <span class="vet-tag">Allergies</span>
+        <span class="vet-tag">Skin Conditions</span>
+        <span class="vet-tag">Dermatology</span>
+      </div>
+      <div class="vet-footer">
+        <div class="vet-availability"><span class="avail-dot green"></span> <span style="color:#22C55E; font-size:12px; font-weight:600;">Available today</span></div>
+        <span class="book-btn">Book appointment →</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- AI SYMPTOM CHECKER -->
+<section class="ai-section" id="ai">
+  <div class="ai-container">
+    <div class="ai-left fade-up">
+      <div class="section-label" style="color:var(--teal-light);">AI-Powered</div>
+      <h2 class="section-title">Pet Symptom Checker</h2>
+      <p class="section-sub">Describe what you're seeing. Get structured guidance — and know when it's time to call a vet right now.</p>
+      <div class="ai-features">
+        <div class="ai-feature">
+          <span class="ai-feature-icon">🧠</span>
+          <div>
+            <div class="ai-feature-title">DVM-Reviewed Responses</div>
+            <p class="ai-feature-desc">Every AI response pathway is built and reviewed by board-certified veterinarians.</p>
+          </div>
+        </div>
+        <div class="ai-feature">
+          <span class="ai-feature-icon">⚠️</span>
+          <div>
+            <div class="ai-feature-title">Emergency Detection</div>
+            <p class="ai-feature-desc">Symptoms that require immediate care are flagged clearly — no ambiguity.</p>
+          </div>
+        </div>
+        <div class="ai-feature">
+          <span class="ai-feature-icon">🔗</span>
+          <div>
+            <div class="ai-feature-title">Direct Vet Connection</div>
+            <p class="ai-feature-desc">From symptom check to booking a relevant specialist — in one flow.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ai-chat-ui fade-up">
+      <div class="chat-header">
+        <div class="chat-avatar">🩺</div>
+        <div>
+          <div class="chat-name">Vets.co Symptom Checker</div>
+          <div class="chat-status">● Online · DVM-reviewed</div>
+        </div>
+      </div>
+      <div class="chat-messages">
+        <div class="msg ai">Hi — I'm here to help you understand your pet's symptoms. What species is your pet, and what are you noticing?</div>
+        <div class="msg user">My dog has been lethargic for 2 days and not eating. He's 8 years old.</div>
+        <div class="msg ai">Thank you. Lethargy + appetite loss lasting 48 hours in a senior dog warrants attention. A few quick questions: Has he vomited or had diarrhea? Any changes in water intake? And is his abdomen visually distended?</div>
+        <div class="msg warning">⚠️ If the abdomen appears bloated or he seems in pain when touched, this may indicate GDV — a life-threatening emergency. Go to the nearest emergency vet immediately.</div>
+      </div>
+      <div class="chat-input-row">
+        <input type="text" class="chat-input" placeholder="Describe your pet's symptoms…">
+        <button class="chat-send">Send</button>
+      </div>
+      <div class="disclaimer">Not a substitute for professional veterinary diagnosis. Always consult a licensed vet for medical decisions.</div>
+    </div>
+  </div>
+</section>
+
+<!-- B2B / FOR VETS -->
+<section class="b2b-section" id="for-vets">
+  <div class="section-label">For Professionals</div>
+  <h2 class="section-title">Built for the Veterinary Industry</h2>
+  <p class="section-sub">Vets.co isn't just for pet owners. We're building essential infrastructure for the entire veterinary ecosystem.</p>
+  <div class="b2b-grid fade-up">
+    <a href="#" class="b2b-card">
+      <span class="b2b-icon">🏥</span>
+      <div class="b2b-tag">For Veterinarians</div>
+      <div class="b2b-title">Claim & Build Your Practice Profile</div>
+      <p class="b2b-desc">Get discovered by pet owners actively searching for your specialty. A verified Vets.co profile drives high-intent, pre-qualified patient inquiries.</p>
+      <div class="b2b-link">Claim your profile</div>
+    </a>
+    <a href="#" class="b2b-card">
+      <span class="b2b-icon">📚</span>
+      <div class="b2b-tag">Continuing Education</div>
+      <div class="b2b-title">Veterinary CE &amp; Professional Resources</div>
+      <p class="b2b-desc">Access continuing education content, clinical guides, and industry resources — curated for busy veterinary professionals.</p>
+      <div class="b2b-link">Browse CE content</div>
+    </a>
+    <a href="#" class="b2b-card">
+      <span class="b2b-icon">💼</span>
+      <div class="b2b-tag">Recruitment</div>
+      <div class="b2b-title">Veterinary Jobs &amp; Staffing</div>
+      <p class="b2b-desc">Post positions or find your next role. Vets.co connects practices with qualified veterinary professionals across every specialty.</p>
+      <div class="b2b-link">Post a position</div>
+    </a>
+    <a href="#" class="b2b-card">
+      <span class="b2b-icon">🤝</span>
+      <div class="b2b-tag">Industry Partners</div>
+      <div class="b2b-title">Partner With Vets.co</div>
+      <p class="b2b-desc">Telehealth platforms, insurance providers, pharmaceutical companies, and veterinary SaaS — reach a highly engaged professional and consumer audience.</p>
+      <div class="b2b-link">Explore partnerships</div>
+    </a>
+  </div>
+</section>
+
+<!-- EMAIL -->
+<section class="email-section" id="newsletter">
+  <div class="section-label" style="justify-content:center;">Pet Health Newsletter</div>
+  <h2 class="section-title" style="max-width:480px; margin:0 auto 14px;">Expert Pet Health Guidance, Weekly</h2>
+  <p class="section-sub" style="margin:0 auto 40px;">Vet-written health tips, seasonal alerts, and guidance for dog and cat owners — delivered every Tuesday.</p>
+  <div class="email-form">
+    <input type="email" class="email-input" placeholder="your@email.com">
+    <button class="email-submit">Subscribe Free</button>
+  </div>
+  <div class="email-trust">🔒 No spam. Unsubscribe anytime. 22,000+ pet owners subscribed.</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="/" class="footer-logo">Vets<span class="dot">.</span>co</a>
+      <p>The modern veterinary platform — connecting pet owners with trusted vets and expert health guidance.</p>
+    </div>
+    <div class="footer-col">
+      <h4>For Pet Owners</h4>
+      <ul>
+        <li><a href="#">Find a Vet</a></li>
+        <li><a href="#">Symptom Checker</a></li>
+        <li><a href="#">Pet Health Library</a></li>
+        <li><a href="#">Emergency Vets</a></li>
+        <li><a href="#">Pet Insurance Guide</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>For Vets</h4>
+      <ul>
+        <li><a href="#">Claim Your Profile</a></li>
+        <li><a href="#">CE Resources</a></li>
+        <li><a href="#">Job Board</a></li>
+        <li><a href="#">Partner With Us</a></li>
+        <li><a href="#">Advertise</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About Vets.co</a></li>
+        <li><a href="#">Editorial Standards</a></li>
+        <li><a href="#">Our Veterinary Team</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Vets.co · All rights reserved</span>
+    <div style="display:flex;gap:20px;">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Medical Disclaimer</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
